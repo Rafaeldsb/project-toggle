@@ -1,0 +1,22 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "ProjectToggle.Main.Grpc";
+
+package toggle;
+
+service Toggle {
+  rpc InsertToggle(InsertToggleRequest) returns (InsertToggleReply) {}
+}
+
+message InsertToggleRequest {
+  string name = 1;
+  string project_id = 2;
+  string slug = 3;
+  bool active = 4;
+  repeated string tags = 5;
+  string strategy_formula = 6;
+}
+
+message InsertToggleReply {
+  string id = 1;
+}
